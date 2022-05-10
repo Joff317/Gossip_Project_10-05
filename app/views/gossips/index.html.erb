@@ -1,0 +1,21 @@
+<h1> Bienvenue sur la homepage</h1>
+
+
+
+
+<div class= "container-fluid">
+   <div class= "row">
+   <% @gossips.each do |gos| %>
+         <div class= "col-4 col-sm-6 col-md-4 col-lg-4 mt-5 text-center" >
+            <div class="card" style="width: 18rem">
+               <div class="card-body">
+                  <h5 class="card-title"> <%= gos.user.first_name %> </h5>  
+                     <p class ="card-title">  <%= gos.title %> </p>
+                     <%= link_to "Clique sur ce lien pour voir le potin au dessus", gossip_path(gos.id), class: 'btn btn-primary' %> 
+                     
+               </div>   
+            </div>      
+         </div>   
+         <% end %>
+    </div>
+</div>

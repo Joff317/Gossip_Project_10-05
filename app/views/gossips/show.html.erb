@@ -1,0 +1,16 @@
+<div class="card mt-5 " style="width: 18rem;">
+<div class="card-body">
+<h5 class="card-title">Voici la page du potin<%= @link.id %></h5>
+  <h5 class="card-title">Le titre est : <%= @link.title %></h5>
+  <h5 class="card-title">Son auteur est : <%= @link.user.first_name %></h5>
+  <h6 class="card-subtitle mb-2 text-muted">Le content est : <%= @link.content %></h6>
+  <h6 class="card-subtitle mb-2 text-muted">Le date de création est : <%= @link.created_at %></h6>
+  <h6 class="card-subtitle mb-2 text-muted">La ville est : <%= @link.user.city.name %></h6>
+  <%= link_to "Clique sur ce lien pour voir le profil de l'author", user_path(@link.user.id) %> 
+
+</div>
+</div>
+
+
+
+

@@ -1,0 +1,14 @@
+<img src="https://source.unsplash.com/200x200/?portrait?sig=<%=rand(1..50)%>" 
+                alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+
+<h4> Prenom : <%=@user.first_name%></h4>
+<h4> Nom : <%=@user.last_name%></h4>
+<h4> Age : <%=@user.age%></h4>
+<h4> Description : <%=@user.description%></h4>
+<h4> Email : <%=@user.email%></h4>
+<h4> City : <%=@user.city.name%></h4>
+<%= link_to "Ville", city_path(@user.city) %> 
+
+
+
+
