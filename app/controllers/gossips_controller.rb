@@ -10,11 +10,15 @@ class GossipsController < ApplicationController
    end
 
    def show 
-      @link = Gossip.get_gossip_id(params[:id])
-    end
+      @link = Gossip.find(params[:id])
+   end
    
   def new
    @new_gossip = Gossip.new 
+  end
+
+  def edit 
+   @gossip = Gossip.find(params[:id])
   end
 
   def create 
@@ -31,5 +35,15 @@ class GossipsController < ApplicationController
    end
   end
 
+
+ def update
+   @gossip = Gossip.find(params[:id]) 
+   gossip_params = params.require(:gossip).permit(:title, :content)
+   if @gossip.update(gossip_params)
+   redirect_to action: "show", notice: 'Success', :id => @gossip.id
+   else 
+   render :action => 'edit'
+   end   
+  end
 
 end

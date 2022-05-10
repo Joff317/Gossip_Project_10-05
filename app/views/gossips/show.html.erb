@@ -7,6 +7,7 @@
   <h6 class="card-subtitle mb-2 text-muted">Le date de création est : <%= @link.created_at %></h6>
   <h6 class="card-subtitle mb-2 text-muted">La ville est : <%= @link.user.city.name %></h6>
   <%= link_to "Clique sur ce lien pour voir le profil de l'author", user_path(@link.user.id) %> 
+  <%= link_to "Modifier", edit_gossip_path(@link.id) %> 
 
 </div>
 </div>
