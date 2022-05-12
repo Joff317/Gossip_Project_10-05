@@ -18,12 +18,12 @@
                <div class="card-body">
                   <h5 class="card-title"> <%= gos.user.first_name %> </h5>  
                      <p class ="card-title">  <%= gos.title %> </p>
-                     <%= link_to "Clique sur ce lien pour voir le potin au dessus", gossip_path(gos.id), class: 'btn btn-primary' %> 
-                                        
+                     <%= link_to "Clique sur ce lien pour voir le potin au dessus", gossip_path(gos.id), class: 'btn btn-primary' %>  
+                    <p class="card-title"><%= gos.likes.count %> <%= (gos.likes.count) == 1 ? 'Like' : 'Likes'%></p>
                </div>   
             </div>      
          </div>   
          <% end %>
     </div>
-    
 </div>
+

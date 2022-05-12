@@ -10,8 +10,8 @@ class GossipsController < ApplicationController
    end
 
    def show 
-      @link = Gossip.find(params[:id])
-      @comments = Comment.where('gossip_id': @link.id)
+      @gossip = Gossip.find(params[:id])
+      @comments = Comment.where('gossip_id': @gossip.id)
    end
    
   def new
@@ -52,8 +52,5 @@ class GossipsController < ApplicationController
       @gossip.destroy
       redirect_to gossips_path
   end
-
-  
-
 
 end
