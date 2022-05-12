@@ -1,5 +1,5 @@
 class GossipsController < ApplicationController
-   ANONYMOUS_USER = 1.freeze
+   before_action :authorize, only: [:new, :edit, :destroy]
 
    def index 
    @gossips = Gossip.all.reorder(id: :asc, title: :asc, content: :asc)
@@ -11,6 +11,7 @@ class GossipsController < ApplicationController
 
    def show 
       @link = Gossip.find(params[:id])
+      @comments = Comment.where('gossip_id': @link.id)
    end
    
   def new
@@ -24,7 +25,7 @@ class GossipsController < ApplicationController
   def create 
    @gossip = Gossip.new("title" => params[:title],
                         "content" => params[:content],
-                        "user" => User.find(ANONYMOUS_USER))
+                         user: current_user)
                         
 
    if @gossip.save 
@@ -45,5 +46,14 @@ class GossipsController < ApplicationController
    render :action => 'edit'
    end   
   end
+
+  def destroy
+   @gossip = Gossip.find(params[:id])
+      @gossip.destroy
+      redirect_to gossips_path
+  end
+
+  
+
 
 end

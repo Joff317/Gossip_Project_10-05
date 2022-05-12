@@ -8,6 +8,18 @@ Rails.application.routes.draw do
   
   resources :cities
   
+  resources :gossips do 
+    resources :comments
+  end
+
+  get '/login'     => 'sessions#new'
+	
+	# create (post) action for when log in form is submitted:
+	post '/login'    => 'sessions#create'
+	
+	# delete action to log out:
+	delete '/logout' => 'sessions#destroy'  
+
     get 'welcome/:first_name', to: 'welcome#show'
     #Route contact
     get '/contact', to: 'index#contact'
