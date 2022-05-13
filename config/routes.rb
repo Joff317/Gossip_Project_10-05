@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :likes
   end
 
+
   get '/login'     => 'sessions#new'
 	
 	# create (post) action for when log in form is submitted:
